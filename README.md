@@ -1,5 +1,8 @@
 Buenas noches, hago la entrega del tp.
 
+Aca se encuentra la parte del back, no pude desplegarla en heroku. Por otra parte, aca esta el
+[LINK AL FRONT](https://github.com/RodrigoOlmedo/FrontLink)
+
 Desde el front (Desplegando con ngServe y entrando por [este link](http://localhost:4200/login)) se pueden ver todos los productos disponibles, entrar a ver el detalle de los mismos, agregar el producto al carrito, abrir el carrito, establecer las cantidades y realizar la compra. 
 Una vez hecha la compra, los items se borran del carrito. En caso de no haber stock no va a ser posible sumarlos al carrito(por pantalla). Falta poder eliminar los items del carrito.
 

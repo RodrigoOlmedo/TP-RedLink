@@ -14,13 +14,13 @@ public class ItemCarrito {
 	@ManyToOne
 	private Producto producto;
 	private int cantidad;
-	private float precio;
+	private double precio;
 	
 
 	public ItemCarrito() {
 		super();
 	}
-	public ItemCarrito(Producto producto, int cantidad, float precio) {
+	public ItemCarrito(Producto producto, int cantidad, double precio) {
 		super();
 		this.producto = producto;
 		this.cantidad = cantidad;
@@ -44,7 +44,7 @@ public class ItemCarrito {
 	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
-	public float precioTotalItem() {
+	public double precioTotalItem() {
 		return precio*cantidad;
 	}
 	public void venderse() {

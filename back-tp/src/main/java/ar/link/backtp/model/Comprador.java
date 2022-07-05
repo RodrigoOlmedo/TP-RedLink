@@ -12,12 +12,12 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Comprador extends Rol {
 	@OneToMany
 	private Collection<OrdenDeCompra> comprasRealizadas;
+	private String rol="comprador";
 	public Comprador() {
 		super();
 	}
 	public Comprador(String nombre, String apellido, String telefono, String email)  {
 		super(nombre, apellido, telefono, email);
-		
 		this.comprasRealizadas = new ArrayList<OrdenDeCompra>();
 	}
 	
@@ -28,7 +28,14 @@ public class Comprador extends Rol {
 	public void setComprasRealizadas(Collection<OrdenDeCompra> comprasRealizadas) {
 		this.comprasRealizadas = comprasRealizadas;
 	}
+	public String getRol() {
+		return rol;
+	}
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
 
+	
 	public void registrarCompra(OrdenDeCompra ordenARegistrar){
 		comprasRealizadas.add(ordenARegistrar);
 	}

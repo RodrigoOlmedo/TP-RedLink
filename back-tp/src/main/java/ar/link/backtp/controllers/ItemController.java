@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,22 +27,15 @@ import ar.link.backtp.repos.RepoItemCarrito;
 @RequestMapping("")
 public class ItemController {
 
-/*	@Autowired
+	@Autowired
 	private RepoItemCarrito repoItems;
 	
 	@Autowired
 	private RepoCarritoDeCompra repoCarrito;
 	
-
 	@Transactional
-	@RequestMapping(method = RequestMethod.POST,value="carrito/{carritoId}/items")
-	public @ResponseBody void agregarItem(@PathVariable("carritoId") Integer carritoId, @RequestBody Producto producto, int cantidad){
-		producto.verificarStock(cantidad);
-		Optional<CarritoDeCompras> carritoOpc= repoCarrito.findById(carritoId);
-		CarritoDeCompras carrito = carritoOpc.get();
-		ItemCarrito itemNuevo=new ItemCarrito(producto,cantidad,producto.getPrecio());
-		carrito.agregarItem(itemNuevo);
-		repoItems.save(itemNuevo);
-		repoCarrito.save(carrito);
-	}*/
+	@PostMapping("/")
+	public void agregarItemACarrito(){
+		
+	}
 }

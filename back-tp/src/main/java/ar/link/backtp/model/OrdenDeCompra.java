@@ -19,6 +19,10 @@ public class OrdenDeCompra {
 	private double total;
 	@OneToMany
 	private Collection<ItemCarrito> productosComprados;
+	
+	protected OrdenDeCompra() {
+		super();
+	}
 	public OrdenDeCompra(Collection<ItemCarrito> productos,double total) {
 		this.setFecha(LocalDate.now());
 		this.setProductosComprados(productos);

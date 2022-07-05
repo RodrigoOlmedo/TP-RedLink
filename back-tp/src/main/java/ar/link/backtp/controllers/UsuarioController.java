@@ -1,12 +1,15 @@
 package ar.link.backtp.controllers;
 
 import java.util.Collection;
+import java.util.Optional;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,29 +23,15 @@ import ar.link.backtp.model.Usuario;
 import ar.link.backtp.model.UsuarioRepetidoException;
 import ar.link.backtp.repos.RepoUsuario;
 
-//@RestController
-//@RequestMapping("/usuarios")
+
+@RepositoryRestController
 public class UsuarioController {
 	
-	//@Autowired
+	@Autowired
 	private RepoUsuario repo;
-	/*
-	@GetMapping("")
-	public Page<Usuario> get(@RequestParam(value = "user", required = false) String user, Pageable page){
-		if(user==null) {
-			return repo.findAll(page);
-		}
-		else {
-			return repo.findByUser(user,page); 
-		}
-	}
 	
-	@GetMapping("/{user}") //no funciona porque no devuelve un unico registro, id user? user unico? 
-	public Usuario get(@PathVariable("user") String user) {
-		return repo.findByUser(user);
-	}
-	/*
-	@Transactional*/
+	
+	@Transactional
 	@PostMapping("")
 	public String post(@RequestBody @Valid Usuario usuario,			
 			BindingResult bindingResult) throws UsuarioRepetidoException {

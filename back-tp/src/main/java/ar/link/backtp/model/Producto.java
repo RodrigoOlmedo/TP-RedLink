@@ -5,7 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Producto {
@@ -17,14 +18,21 @@ public class Producto {
 	private String nombre;
 	private double precio;
 	private String descripcion;
+	private String image;
 	private int stock;
+	@JsonIgnore
 	private	int stockMinimo;
 	
-	public Producto(Vendedor vendedor, String nombre, double precio, String descripcion, int stock,int stockMinimo) {
+	protected Producto() {
+		super();
+	}
+	public Producto(Vendedor vendedor, String nombre, String descripcion, double precio, String image, int stock,int stockMinimo) {
 		super();
 		this.vendedor = vendedor;
 		this.nombre = nombre;
+		this.precio = precio;
 		this.descripcion = descripcion;
+		this.image=image;
 		this.stock = stock;
 		this.stockMinimo=stockMinimo;
 	}
@@ -78,6 +86,12 @@ public class Producto {
 		this.stock = stock;
 	}
 
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	//funciones
 	public void verificarStock(Integer cantidad) {
 		if(cantidad>stock){
@@ -86,10 +100,6 @@ public class Producto {
 	}
 	public void venderse(Integer cantidad) {
 		this.setStock(stock-cantidad);
-		if(stock<stockMinimo) {
-			vendedor.recibirAvisoDeFaltaStock();
-			//puede ser notificacion.avisoFaltaStock();
-		}
 	}
 	
 

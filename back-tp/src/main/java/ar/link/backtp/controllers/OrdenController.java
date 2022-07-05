@@ -30,14 +30,5 @@ public class OrdenController {
 	@Autowired
 	private RepoComprador repoComprador;
 	
-	@Transactional
-	@RequestMapping(method = RequestMethod.POST,value="/ordenes")
-	public @ResponseBody void nuevaOrden(@PathVariable("compradorId") Integer compradorId, @RequestBody Collection<ItemCarrito> itemsCarrito){
-		Optional<Comprador> compradorOpc= repoComprador.findById(compradorId);
-		Comprador comprador = compradorOpc.get();
-		OrdenDeCompra ordenDeCompra = new OrdenDeCompra(itemsCarrito), ;
-		comprador.registrarCompra(ordenDeCompra);
-		repoOrders.save(ordenDeCompra);
-		repoComprador.save(comprador);
-	}
+
 }

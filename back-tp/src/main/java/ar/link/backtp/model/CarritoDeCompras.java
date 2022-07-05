@@ -34,7 +34,14 @@ public class CarritoDeCompras {
 	public void setComprador(Comprador comprador) {
 		this.comprador = comprador;
 	}
+	
 
+	public Collection<ItemCarrito> getProductosAComprar() {
+		return productosAComprar;
+	}
+	public void setProductosAComprar(Collection<ItemCarrito> productosAComprar) {
+		this.productosAComprar = productosAComprar;
+	}
 	//Funciones
 	public void agregarItem(ItemCarrito itemARegistrar) {;
 		this.productosAComprar.add(itemARegistrar);
@@ -42,8 +49,13 @@ public class CarritoDeCompras {
 	public double calcularTotal(){
 		return productosAComprar.stream().mapToDouble((item)->item.precioTotalItem()).sum();
 	}
+	public double precioFinal(){
+		double total = this.calcularTotal()-2;
+		return total;
+	}
 	public void comprarse() {
 		this.registrarVentaDeProductos();
+		this.setProductosAComprar(new ArrayList<ItemCarrito>());
 	}
 	//reduce el stock de cada producto del carrito
 	private void registrarVentaDeProductos() {

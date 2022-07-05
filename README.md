@@ -19,6 +19,9 @@ comp | comp para entrar como comprador
 
 vend | vend para entrar como vendedor
 
+
+- ACLARACION: Las variables de entorno se configuran desde la IDE, sin embargo, no logre que haciendo eso me reconozca la initData... de ser asi, configurar en el application.properties
+
 - Otros links utiles con postman:
 
 Creacion de producto:
